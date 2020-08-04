@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    
+    <div id="container">
+        <div id="inner-wrap">
+        <h1>A Message You Would Like To Pass</h1>
+        <input id="message" type="text" placeholder="Write Something">
+        <div id="submit-btn">Submit</div>
+        <h2>Last Message Delivered</h2>
+        <p id="returnEle" style="color: #00a0b0;"></p>
+    </div>
+    </div>
+    <script>
+        const inputVal = document.getElementById("message");
+        const button = document.getElementById("submit-btn");
+        const returnText = document.getElementById("returnEle");
+
+        button.addEventListener("click", getElement);
+
+        function getElement(){
+            let Aresult = inputVal.value;
+            console.log(Aresult);
+            returnText.innerHTML = Aresult;
+            
+            setTimeout(function(){
+                returnText.innerHTML = "";
+            },2000);
+            
+        };
+
+        inputVal.addEventListener('keyup', function(e){
+            if(e.which === 13){
+                getElement();
+            }
+        });
+
+
+
+    </script>
+
+</body>
+</html>
